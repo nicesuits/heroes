@@ -22,7 +22,7 @@ class HeroComponent implements OnActivate {
   @override
   void onActivate(_, RouterState current) async {
     final id = getId(current.parameters);
-    if (id != null) hero = await (_heroService.get(id));
+    if (id != null) hero = await (_heroService.getById(id));
   }
 
   void goBack() => _location.back();
