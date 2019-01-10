@@ -30,6 +30,12 @@ class HeroService {
     return Exception('Server error; cause: $e');
   }
 
-  Future<Hero> get(int id) async =>
-      (await getAll()).firstWhere((hero) => hero.id == id);
+  Future<Hero> get(int id) async {
+    try {
+      final response = await _http.get('$_heroesUrl/$id');
+      return Hero.fromJson(_extractData(response));
+    } catch (e) {
+      throw _handleError(e);
+    }
+  }
 }
