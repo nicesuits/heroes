@@ -1,17 +1,16 @@
 import 'package:angular/angular.dart';
-import 'package:angular_router/angular_router.dart';
 
-import 'src/hero_service.dart';
-import 'src/routes.dart';
+import 'src/todo_list/todo_list_component.dart';
+
+// AngularDart info: https://webdev.dartlang.org/angular
+// Components info: https://webdev.dartlang.org/components
 
 @Component(
   selector: 'my-app',
   styleUrls: ['app_component.css'],
   templateUrl: 'app_component.html',
-  directives: [routerDirectives],
-  providers: [ClassProvider(HeroService)],
-  exports: [RoutePaths, Routes],
+  directives: [TodoListComponent],
 )
 class AppComponent {
-  final title = 'Routed Tour of Heroes';
+  // Nothing here yet. All logic is in TodoListComponent.
 }
